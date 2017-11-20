@@ -5,12 +5,70 @@ HOST: http://emprest.apiblueprint.org/
 
 EmployeeREST is a simple API allowing consumers to retrieve employee details.
 
-## Employee Actions [/employee]
+## Employees Actions [/Employees]
+
+### getAllEmployeeDetails [GET]
+
+Retrieve all employee details using this action. It doesn't have any request and returns a collection of details about all employees.
+
+
++ Response 201 (application/json)
+
+    + Headers
+
+            Location: /Employees
+
+    + Body
+
+            {
+                    "EmpDetailsView":
+                        [
+                            {
+                                "departmentName": "Executive",
+                                "lastName": "King",
+                                "city": "Seattle",
+                                "departmentId": 90,
+                                "jobTitle": "President",
+                                "regionName": "Americas",
+                                "stateProvince": "Washington",
+                                "employeeId": 100,
+                                "managerId": {"@nil": "true"},
+                                "salary": 24000,
+                                "countryId": "US",
+                                "commissionPct": {"@nil": "true"},
+                                "jobId": "AD_PRES",
+                                "firstName": "Steven",
+                                "locationId": 1700,
+                                "countryName": "United States of America"
+                            },
+                            {
+                                "departmentName": "Marketing",
+                                "lastName": "Fay",
+                                "city": "Toronto",
+                                "departmentId": 20,
+                                "jobTitle": "Marketing Representative",
+                                "regionName": "Americas",
+                                "stateProvince": "Ontario",
+                                "employeeId": 202,
+                                "managerId": 201,
+                                "salary": 6000,
+                                "countryId": "CA",
+                                "commissionPct": {"@nil": "true"},
+                                "jobId": "MK_REP",
+                                "firstName": "Pat",
+                                "locationId": 1800,
+                                "countryName": "Canada"
+                            }
+                        ]
+
+            }
+            
+
+## Employee Actions [/Employee]
 
 ### getEmployeeDetails [GET]
 
-Retrieve employee details using this action. It takes a JSON
-object containing the employee id and a collection of details about the employee.
+Retrieve employee details using this action. It takes a JSON object containing the employee id and returns a collection of details about the employee.
 
 + Request (application/json)
 
@@ -22,26 +80,31 @@ object containing the employee id and a collection of details about the employee
 
     + Headers
 
-            Location: /questions/2
+            Location: /Employee
 
     + Body
 
             {
-                "question": "Favourite programming language?",
-                "published_at": "2015-08-05T08:40:51.620Z",
-                "choices": [
-                    {
-                        "choice": "Swift",
-                        "votes": 0
-                    }, {
-                        "choice": "Python",
-                        "votes": 0
-                    }, {
-                        "choice": "Objective-C",
-                        "votes": 0
-                    }, {
-                        "choice": "Ruby",
-                        "votes": 0
-                    }
-                ]
+                    "EmpDetailsView":
+                        [
+                            {
+                                "departmentName": "Executive",
+                                "lastName": "King",
+                                "city": "Seattle",
+                                "departmentId": 90,
+                                "jobTitle": "President",
+                                "regionName": "Americas",
+                                "stateProvince": "Washington",
+                                "employeeId": 100,
+                                "managerId": {"@nil": "true"},
+                                "salary": 24000,
+                                "countryId": "US",
+                                "commissionPct": {"@nil": "true"},
+                                "jobId": "AD_PRES",
+                                "firstName": "Steven",
+                                "locationId": 1700,
+                                "countryName": "United States of America"
+                            }
+                        ]
+
             }
